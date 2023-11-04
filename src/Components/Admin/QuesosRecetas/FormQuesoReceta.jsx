@@ -1,45 +1,101 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useState } from 'react';
 
 function FormQuesoReceta() {
+    const [formData, setFormData] = useState({
+        nombreQueso: '',
+        ingrediente_1: '',
+        ingrediente_2: '',
+        ingrediente_3: '',
+        ingrediente_4: '',
+        ingrediente_5: '',
+        ingrediente_6: '',
+        ingrediente_7: '',
+        ingrediente_8: '',
+        ingrediente_9: '',
+        ingrediente_10: '',
+
+        procedimientos: '',
+        imagen: null,
+    });
+
+    const handleFormSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await axios.post('http://localhost:3000/quesos', formData);
+            console.log('Respuesta del servidor:', response.data);
+        } catch (error) {
+            console.error('Error al enviar la solicitud POST:', error);
+        }
+    };
+
+    const handleInputChange = (e) => {
+        const { name, value, type, files } = e.target;
+        const newValue = type === 'file' ? files[0] : value;
+
+        setFormData({
+            ...formData,
+            [name]: newValue,
+        });
+    };
+
     return (
-        <div className=''>
+        <div>
             <div className='grid place-content-center'>
-                <div className='bg-[#AEC5FF]  p-5 w-full'>
-                    <h1 className=' text-white'>Añadir Queso</h1>
+                <div className='bg-[#AEC5FF] p-5 w-full'>
+                    <h1 className='text-white'>Añadir Queso</h1>
                 </div>
-                <form className='flex flex-col'>
+                <form className='flex flex-col' onSubmit={handleFormSubmit}>
+                    <label className='my-1' htmlFor="nombreQueso">Nombre del queso:</label>
+                    <input
+                        className='w-80 rounded-lg p-1 border-gray-400 border-2'
+                        type="text"
+                        name="nombreQueso"
+                        onChange={handleInputChange} // Agregar onChange para actualizar el estado
+                    />
 
-                    <label className='my-1' htmlFor="nombre">Nombre del queso: </label><input className='   w-80 rounded-lg p-1 border-gray-400   border-2 ' type="text" name="nombre" />
+                    <label className='my-1' htmlFor="ingrediente_1">Ingredientes:</label>
+                    <input
+                        className='w-80 rounded-lg p-1 border-gray-400 border-2'
+                        type="text"
+                        name="ingrediente_1"
+                        onChange={handleInputChange} // Agregar onChange para actualizar el estado
+                    />
+                       <button
+                        className='bg-[#2794E3] mt-2 border p-2 px-10 text-white rounded-2xl hover:bg-white hover:border-[#2794E3] hover:text-[#2794E3] duration-300'
+                    >
+                        +
+                    </button>
 
-                    <label className='my-1' htmlFor="ingredientes">ingredientes: </label><input className='   w-80 rounded-lg p-1  border-gray-400   border-2 ' type="text" name="ingredientes" />
+                    <label htmlFor="procedimientos">Procedimiento de Elaboración</label>
+                    <textarea
+                        className='border-2 border-gray-200'
+                        name="procedimientos"
+                        id="procedimientos"
+                        cols="30"
+                        rows="10"
+                        onChange={handleInputChange} // Agregar onChange para actualizar el estado
+                    ></textarea>
 
-                    <button className='my-3 bg-[#2794E3] w-full border  text-white rounded-2xl hover:bg-white hover:border-[#2794E3]  hover:text-[#2794E3] duration-300 text-4xl'>{" "} + {" "}</button>
+                    <label className='my-1' htmlFor="imagen">Imagen:</label>
+                    <input
+                        className='w-80 rounded-lg p-1 border-gray-400 border-2'
+                        type="file"
+                        name="imagen"
+                        onChange={handleInputChange} // Agregar onChange para actualizar el estado
+                    />
 
-                    <label htmlFor="">Procedimiento de Elaboracion</label> <textarea className='border-2 border-gray-200 ' name="" id="" cols="30" rows="10"></textarea>
-
-                    <label className='my-1' htmlFor="Imagen">Imagen: </label><input className='   w-80 rounded-lg p-1  border-gray-400   border-2 ' type="file" name="Imagen" />
-
-                    <label htmlFor="">Estado</label>
-                    <select name="" id="" className=' p-2 mt-2   border-2 border-gray-400 '>
-                        <option value="">Produccion</option>
-                        <option value="">Desabilitado</option>
-                    </select>
-
-                    <div className=' flex justify-center items-center mt-6 gap-4'>
-                        <button className=' border-[#2794E3] p-2 rounded-2xl px-8 border text-[#2794E3] hover:bg-[#2794E3]  hover:text-white duration-300 '>Cancelar</button>
-                        <button className=' bg-[#2794E3] border p-2 px-10 text-white rounded-2xl hover:bg-white hover:border-[#2794E3]  hover:text-[#2794E3] duration-300'>{" "} Enviar {" "}</button>
-                    </div>
-
-                    <label className='my-1' htmlFor="Comentarios">Comentarios: </label><input className='   w-80 rounded-lg p-1  border-gray-400   border-2 ' type="textfield" name="Comentarios" />
-
-
+                    <button
+                        className='bg-[#2794E3] border p-2 px-10 text-white rounded-2xl hover:bg-white hover:border-[#2794E3] hover:text-[#2794E3] duration-300'
+                        type="submit"
+                    >
+                        Enviar
+                    </button>
                 </form>
             </div>
-
-            <div></div>
-
         </div>
-    )
+    );
 }
 
-export default FormQuesoReceta
+export default FormQuesoReceta;

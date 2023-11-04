@@ -10,7 +10,7 @@ function QuesoyReceta() {
         <div>
             <AdminNavHome />
             <AdminNavbar />
-            <div className='girdquesoreceta'>
+            <div className='sm:girdquesoreceta grid  grid-cols-1'>
                 <FormQuesoReceta />
                 <Quesos />
             </div>
