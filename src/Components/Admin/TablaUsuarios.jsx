@@ -16,9 +16,6 @@ function TablaUsuarios({ data, onEditar, onEliminar }) {
                             User Level
                         </th>
                         <th className=" w-48 px-6 py-3 bg-[#AEC5FF] text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
-                            Enable
-                        </th>
-                        <th className=" w-48 px-6 py-3 bg-[#AEC5FF] text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
                             Editar
                         </th>
                         <th className=" w-48 px-6 py-3 bg-[#AEC5FF] text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">

@@ -9,7 +9,7 @@ function AdminNavbar() {
           <Link to="/index">Sistema</Link>
           <Link to="/anadirReceta">Añadir Receta</Link>
           <Link to="/anadir">Registro Trabajadores</Link>
-          <Link to="/home"> Consulta trabajadores </Link>
+          <Link to="/crudtrabajadores"> Consulta trabajadores </Link>
 
         </nav>
       </div>

@@ -24,6 +24,19 @@ function Quesos() {
   const closeModal = () => {
     setSelectedQueso(null);
   };
+    const deleteQueso = (quesoId) => {
+      // Realizar una solicitud para eliminar el queso con el ID específico
+      axios.delete(`http://localhost:3000/queso/${quesoId}`)
+        .then((response) => {
+          if (response.status === 200) {
+            // Actualizar la lista de quesos después de eliminar el queso con éxito
+            setQuesos(quesos.filter((queso) => queso.idQueso !== quesoId));
+          }
+        })
+        .catch((error) => {
+          console.error('Error al eliminar queso:', error);
+        });
+    };
 
   return (
     <div>
@@ -42,7 +55,14 @@ function Quesos() {
               >
                 Ver más
               </button>
+              <button
+                className='p-2 bg-red-500 rounded-2xl text-white mt-2'
+                onClick={() => deleteQueso(item.idQueso)}
+              >
+                Eliminar
+              </button>
             </div>
+            
           ))}
         </div>
       </section>
@@ -54,21 +74,33 @@ function Quesos() {
               &times;
             </span>
             <h2 className="text-2xl font-bold">{selectedQueso.nombreQueso}</h2>
+            <section className='grid grid-cols-2'>
             <img src={selectedQueso.imagen} alt={selectedQueso.nombreQueso} className="w-64 mt-4 mx-auto" />
-            <h3 className='font-bold'>Ingredientes</h3>
-            <p className="mt-4"> {selectedQueso.ingrediente_1}</p>
-            <p className="mt-4"> {selectedQueso.ingrediente_2}</p>
-            <p className="mt-4"> {selectedQueso.ingrediente_3}</p>
-            <p className="mt-4"> {selectedQueso.ingrediente_4}</p>
-            <p className="mt-4"> {selectedQueso.ingrediente_5}</p>
-            <p className="mt-4"> {selectedQueso.ingrediente_6}</p>
-            <p className="mt-4"> {selectedQueso.ingrediente_7}</p>
-            <p className="mt-4"> {selectedQueso.ingrediente_8}</p>
-            <p className="mt-4"> {selectedQueso.ingrediente_9}</p>
-            <p className="mt-4"> {selectedQueso.ingrediente_10}</p>
+            <div className='bg-blue-200 rounded-xl'>
+            <h3 className='font-bold text-center'>Ingredientes</h3>
+            <div className='grid grid-cols-3 ml-10'>
+            <p className="mt-2"> {selectedQueso.ingrediente_1}</p>
+            <p className="mt-2"> {selectedQueso.ingrediente_2}</p>
+            <p className="mt-2"> {selectedQueso.ingrediente_3}</p>
+            <p className="mt-2"> {selectedQueso.ingrediente_4}</p>
+            <p className="mt-2"> {selectedQueso.ingrediente_5}</p>
+            <p className="mt-2"> {selectedQueso.ingrediente_6}</p>
+            <p className="mt-2"> {selectedQueso.ingrediente_7}</p>
+            <p className="mt-2"> {selectedQueso.ingrediente_8}</p>
+            <p className="mt-2"> {selectedQueso.ingrediente_9}</p>
+            <p className="mt-2"> {selectedQueso.ingrediente_10}</p>
+            </div>
+          
+            </div>
+            </section>
+
+            <div className='bg-blue-200 rounded-xl mt-4 p-3'>
             <h3 className='font-bold'>Procedimiento</h3>
             <p className="mt-4">{selectedQueso.procedimientos}</p>
+            </div>
+        
           </div>
+        
         </div>
       )}
     </div>

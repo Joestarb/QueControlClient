@@ -55,18 +55,72 @@ function FormQuesoReceta() {
                         onChange={handleInputChange} // Agregar onChange para actualizar el estado
                     />
 
-                    <label className='my-1' htmlFor="ingrediente_1">Ingredientes:</label>
-                    <input
-                        className='w-80 rounded-lg p-1 border-gray-400 border-2'
-                        type="text"
-                        name="ingrediente_1"
-                        onChange={handleInputChange} // Agregar onChange para actualizar el estado
-                    />
-                       <button
-                        className='bg-[#2794E3] mt-2 border p-2 px-10 text-white rounded-2xl hover:bg-white hover:border-[#2794E3] hover:text-[#2794E3] duration-300'
-                    >
-                        +
-                    </button>
+                        <label className='my-1' htmlFor="ingrediente_1">Ingredientes:</label>
+                    <div className=' grid  grid-cols-3 gap-2'>
+                        <input
+                            className='w-32 rounded-lg p-1 border-gray-400 border-2'
+                            placeholder='Ingrediente'
+                            type="text"
+                            name="ingrediente_1"
+                            onChange={handleInputChange} // Agregar onChange para actualizar el estado
+                        />
+                        <input
+                            className='w-32 rounded-lg p-1 border-gray-400 border-2'
+                            placeholder='Ingrediente'
+                            type="text"
+                            name="ingrediente_2"
+                            onChange={handleInputChange} // Agregar onChange para actualizar el estado
+                        />  <input
+                            className='w-32 rounded-lg p-1 border-gray-400 border-2'
+                            placeholder='Ingrediente'
+                            type="text"
+                            name="ingrediente_3"
+                            onChange={handleInputChange} // Agregar onChange para actualizar el estado
+                        />  <input
+                            className='w-32 rounded-lg p-1 border-gray-400 border-2'
+                            placeholder='Ingrediente'
+                            type="text"
+                            name="ingrediente_4"
+                            onChange={handleInputChange} // Agregar onChange para actualizar el estado
+                        />  <input
+                            className='w-32 rounded-lg p-1 border-gray-400 border-2'
+                            placeholder='Ingrediente'
+                            type="text"
+                            name="ingrediente_5"
+                            onChange={handleInputChange} // Agregar onChange para actualizar el estado
+                        />  <input
+                            className='w-32 rounded-lg p-1 border-gray-400 border-2'
+                            placeholder='Ingrediente'
+                            type="text"
+                            name="ingrediente_6"
+                            onChange={handleInputChange} // Agregar onChange para actualizar el estado
+                        />  <input
+                            className='w-32 rounded-lg p-1 border-gray-400 border-2'
+                            placeholder='Ingrediente'
+                            type="text"
+                            name="ingrediente_7"
+                            onChange={handleInputChange} // Agregar onChange para actualizar el estado
+                        />  <input
+                            className='w-32 rounded-lg p-1 border-gray-400 border-2'
+                            placeholder='Ingrediente'
+                            type="text"
+                            name="ingrediente_8"
+                            onChange={handleInputChange} // Agregar onChange para actualizar el estado
+                        />  <input
+                            className='w-32 rounded-lg p-1 border-gray-400 border-2'
+                            placeholder='Ingrediente'
+                            type="text"
+                            name="ingrediente_9"
+                            onChange={handleInputChange} // Agregar onChange para actualizar el estado
+                        />  <input
+                            className='w-32 rounded-lg p-1 border-gray-400 border-2'
+                            placeholder='Ingrediente'
+                            type="text"
+                            name="ingrediente_10"
+                            onChange={handleInputChange} // Agregar onChange para actualizar el estado
+                        />
+                    </div>
+
 
                     <label htmlFor="procedimientos">Procedimiento de Elaboración</label>
                     <textarea

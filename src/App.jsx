@@ -2,6 +2,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AnadirTrabajadores from "./pages/AnadirTrabajadores";
 import Catalogo from './pages/Catalogo';
+import CrudTrabajadoresp from "./pages/CrudTrabajadoresp";
 import Error404 from "./pages/Error404";
 import GenerarQr from './pages/GenerarQr';
 import Homepage from "./pages/HomePage";
@@ -9,6 +10,7 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import QuesoyReceta from "./pages/QuesoyReceta";
 import RecuperarContrasena from "./pages/RecuperarContrasena";
+
 function App() {
   return (
     <div>
@@ -22,6 +24,8 @@ function App() {
           <Route path="/Anadir" element={<AnadirTrabajadores/>} />
           <Route path="/anadirReceta" element={<QuesoyReceta/>} />
           <Route path="/qr" element={<GenerarQr/>} />
+          <Route path="/crudtrabajadores" element={<CrudTrabajadoresp/>} />
+
 
 
           <Route path="/*" element={<Error404/>} />
