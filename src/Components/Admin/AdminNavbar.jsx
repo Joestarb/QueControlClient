@@ -10,6 +10,8 @@ function AdminNavbar() {
           <Link to="/anadirReceta">Añadir Receta</Link>
           <Link to="/anadir">Registro Trabajadores</Link>
           <Link to="/crudtrabajadores"> Consulta trabajadores </Link>
+          <Link to="/qr"> Generar QR </Link>
+
 
         </nav>
       </div>

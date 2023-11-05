@@ -8,7 +8,7 @@ function GenerarQr() {
     <div>
       <AdminNavHome />
       <AdminNavbar />
-      <div className='girdquesoreceta'>
+      <div className='grid grid-cols-1 sm:grid-cols-2'>
         <QrForm />
         <FichaInventario/>
       </div>
