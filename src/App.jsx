@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import QuesoyReceta from "./pages/QuesoyReceta";
 import RecuperarContrasena from "./pages/RecuperarContrasena";
+import Producto from "./pages/Producto";
 
 function App() {
   return (
@@ -25,16 +26,12 @@ function App() {
           <Route path="/anadirReceta" element={<QuesoyReceta/>} />
           <Route path="/qr" element={<GenerarQr/>} />
           <Route path="/crudtrabajadores" element={<CrudTrabajadoresp/>} />
-
+          <Route path="/producto/:id" element={<Producto/>} />
 
 
           <Route path="/*" element={<Error404/>} />
 
 
-
-
-
-          
 
 
         </Routes>

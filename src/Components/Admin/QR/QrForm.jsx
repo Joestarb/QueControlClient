@@ -1,7 +1,11 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import QrCodeGen from 'qrcode.react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-function QrForm() {
+function QrForm({id, setId}) {
+
     const [formData, setFormData] = useState({
         descripcion_producto: '',
         fecha_creacion: '',
@@ -10,7 +14,8 @@ function QrForm() {
         ubicacion_almacen: '',
         imagen_producto: '',
         comentarios: ''
-    });
+    })
+    
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -24,6 +29,8 @@ function QrForm() {
             .then((response) => {
                 // Manejar la respuesta del servidor aquí, por ejemplo, mostrar un mensaje de éxito o redirigir a otra página.
                 console.log('Respuesta del servidor:', response.data);
+                setId(response.data.id)
+                toast.success('Nuevo lote creado con exito!!');
             })
             .catch((error) => {
                 // Manejar errores, por ejemplo, mostrar un mensaje de error.
@@ -31,6 +38,9 @@ function QrForm() {
             });
     };
 
+    useEffect(()=>{
+        console.log(id)   
+    },[id])
     return (
         <div className='ml-10 '>
             <div className='grid place-content-center'>
@@ -106,6 +116,9 @@ function QrForm() {
                         >
                             Enviar
                         </button>
+                        <div className="App">
+
+    </div>
                     </div>
                 </form>
             </div>
