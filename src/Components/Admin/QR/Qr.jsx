@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import QRCode from 'qrcode.react';
 
-function Qr({ data }) {
+const Qr = forwardRef(({ data }, ref) => {
   return (
-    <div>
+    <div ref={ref}>
       <QRCode value={data} size={264} />
     </div>
   );
-}
+});
 
-export default Qr
+export default Qr;
