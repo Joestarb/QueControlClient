@@ -27,6 +27,7 @@ function App() {
           <Route path="/crudtrabajadores" element={<CrudTrabajadoresp/>} />
           <Route path="/producto/:id" element={<Producto/>} />
           <Route path="/qrtrabajador" element={<GenerarQrTrabajador/>} />
+          <Route path="/qrtrabajador" element={<GenerarQrTrabajador/>} />
 
           <Route path="/*" element={<Error404/>} />
 
