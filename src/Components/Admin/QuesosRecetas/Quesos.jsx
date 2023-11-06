@@ -41,7 +41,7 @@ function Quesos() {
   return (
     <div>
       <section>
-        <div className='grid grid-cols-2 justify-center gap-10'>
+        <div className='grid grid-cols-2 justify-center gap-10 '>
           {quesos.map((item) => (
             <div key={item.idQueso} className='text-center flex flex-col justify-center'>
               <div className='flex justify-center'>

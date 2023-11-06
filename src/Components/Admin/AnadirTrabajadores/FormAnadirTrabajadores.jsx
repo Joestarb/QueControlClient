@@ -1,15 +1,18 @@
 import Axios from 'axios';
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 
 function FormAnadirTrabajadores() {
-  const [userData, setUserData] = useState({
+  const initialState = {
     nombre: '',
     contrasenia: '',
     perfil: '',
     telefono: '',
     infoAdicional: '',
-    estatus: true, // Puedes establecer un valor predeterminado
-  });
+    estatus: true,
+  };
+
+  const [userData, setUserData] = useState(initialState);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,7 +22,6 @@ function FormAnadirTrabajadores() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validar que el campo "estatus" no esté en blanco
     if (!userData.estatus) {
       alert('El campo "estatus" no puede estar en blanco');
       return;
@@ -27,13 +29,32 @@ function FormAnadirTrabajadores() {
 
     try {
       const response = await Axios.post('http://localhost:3000/usuarios', userData);
-      // Manejar la respuesta aquí si es necesario
       console.log(response.data);
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Éxito',
+        text: 'Los datos se han enviado correctamente.',
+      });
+
+      // Limpiar el formulario después de un envío exitoso
+      setUserData(initialState);
+
     } catch (error) {
-      // Manejar errores aquí
       console.error(error);
+
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Ha ocurrido un error al enviar los datos.',
+      });
     }
   };
+
+  const limpiarFormulario = () => {
+    setUserData(initialState);
+  };
+
 
   return (
     <div className='grid place-content-center'>
@@ -111,14 +132,15 @@ function FormAnadirTrabajadores() {
         />
 
         <div className='flex justify-center items-center mt-6 gap-4'>
-          <button
-            className='border-[#2794E3] p-2 rounded-2xl px-8 border text-[#2794E3] hover:bg-[#2794E3] hover:text-white duration-300'
-            type="submit"
+        <button
+            className='border-[#2794E3] p-2 rounded-2xl px-8 border text-[#2794E3] hover:bg-[#2794E3] hover-text-white duration-300 hover:text-white'
+            type="button"
+            onClick={limpiarFormulario}
           >
             Cancelar
           </button>
           <button
-            className='bg-[#2794E3] border p-2 px-10 text-white rounded-2xl hover:bg-white hover-border-[#2794E3] hover:text-[#2794E3] duration-300'
+            className='bg-[#2794E3] border p-2 px-10 text-white rounded-2xl hover:bg-white hover:border-[#2794E3] hover:text-[#2794E3] duration-300'
             type="submit"
           >
             Enviar

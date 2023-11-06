@@ -10,11 +10,13 @@ function QuesoyReceta() {
         <div>
             <AdminNavHome />
             <AdminNavbar />
-            <div className=' girdquesoreceta  max-md:grid-cols-1'>
+            <div className='girdquesoreceta max-md:grid-cols-1'>
                 <FormQuesoReceta />
-                <Quesos />
+                <div className='overflow-y-auto h-[100vh]'>
+                    <Quesos />
+                </div>
             </div>
-            <Footer/>
+            <Footer />
         </div>
     )
 }
