@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 
 function CrudTrabajadores() {
     const [usuarios, setUsuarios] = useState([]);
@@ -34,12 +35,13 @@ function CrudTrabajadores() {
     return (
         <div className='h-[80vh] mt-10'>
             <div className='flex justify-around'>
-                <div className='flex sm:gap-3'>
-                    <p className='m-auto'>User</p>
-                    <input type="text" placeholder='Search' className='m-auto block rounded border border-gray-300 px-2 py-1' />
-                </div>
                 <div>
-                    <button className='bg-blue-500 rounded-xl p-3 text-white ml-1'>Add +</button>
+
+                 <Link to="/anadir">
+
+                 <button className='bg-blue-500 rounded-xl p-3 text-white ml-1'>Añadir mas trabajadores +</button>
+                    </Link> 
+                    
                 </div>
             </div>
 

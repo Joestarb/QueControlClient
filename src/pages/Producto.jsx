@@ -1,13 +1,13 @@
 import React from 'react'
 import AdminNavHome from '../Components/Admin/AdminNavHome'
-import AdminNavbar from '../Components/Admin/AdminNavbar'
+import NavbarTrabajador from '../Components/Trabajador/NavbarTrabajador'
 import QrProducto from '../Components/Admin/QR/QrProducto'
 
 function Producto() {
   return (
     <div>
       <AdminNavHome/>
-      <AdminNavbar/>
+      <NavbarTrabajador/>
         <QrProducto/>
     </div>
   )
